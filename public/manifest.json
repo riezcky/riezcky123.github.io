@@ -1,0 +1,17 @@
+{
+    "name": "Magetan Kumandang",
+    "short_name": "Magetan Kumandang",
+    "description": "Aplikasi PWA tentang Kabupaten Magetan",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#00897B",
+    "theme_color": "#00897B",
+    "icons": [
+        {
+            "purpose": "maskable",
+            "src": "icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

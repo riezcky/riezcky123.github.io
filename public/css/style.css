@@ -1,0 +1,38 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.featured-image {
+    max-width: 90%;
+    max-height: 700px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.kuliner-image {
+    max-width: 70%;
+    max-height: 500px;
+    object-fit: cover;
+    object-position: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#foto-rizki {
+    border-radius: 11%;
+}
+
+.sct-x {
+    padding-top: -21rem;
+    padding-bottom: -4rem;
+    margin: 20px;
+}
+
+.waves-effect {
+    display: flex;
+}
