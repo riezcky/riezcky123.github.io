@@ -1,11 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
-  // Activate sidebar nav
-  var elems = document.querySelectorAll(".sidenav");
-  M.Sidenav.init(elems);
-  loadNav();
  
-  function loadNav() {
-    var xhttp = new XMLHttpRequest();
+  const loadNav = () => {
+    let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4) {
         if (this.status != 200) return;
@@ -19,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelectorAll(".sidenav a, .topnav a").forEach(function(elm) {
           elm.addEventListener("click", function(event) {
             // Tutup sidenav
-            var sidenav = document.querySelector(".sidenav");
+            let sidenav = document.querySelector(".sidenav");
             M.Sidenav.getInstance(sidenav).close();
   
             // Muat konten halaman yang dipanggil
@@ -33,16 +29,30 @@ document.addEventListener("DOMContentLoaded", function() {
     xhttp.send();
   }
 
-  // Load page content
-  var page = window.location.hash.substr(1);
-  if (page == "") page = "home";
-  loadPage(page);
-  
-  function loadPage(page) {
-    var xhttp = new XMLHttpRequest();
+  // Activate sidebar nav
+  let elems = document.querySelectorAll(".sidenav");
+  M.Sidenav.init(elems);
+  loadNav();
+
+  const loadPage = page => {
+    let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4) {
-        var content = document.querySelector("#body-content");
+        let content = document.querySelector("#body-content");
+
+        if (page === "liga_inggris") {
+          getLigaInggris();
+          // document.getElementById("logo-container").innerHTML = "Premier League";
+        } else if (page === "klasemen") {
+          getKlasemen();
+          // document.getElementById("logo-container").innerHTML = "Classements";
+        } else if (page === "saved") {
+          getSavedClubs();
+          // document.getElementById("logo-container").innerHTML = "Favorites";
+        } else if (page == "about") {
+          // document.getElementById("logo-container").innerHTML = "My Profile";
+        }
+        
         if (this.status == 200) {
           content.innerHTML = xhttp.responseText;
         } else if (this.status == 404) {
@@ -55,5 +65,11 @@ document.addEventListener("DOMContentLoaded", function() {
     xhttp.open("GET", "pages/" + page + ".html", true);
     xhttp.send();
   }
+
+  // Load page content
+  let page = window.location.hash.substr(1);
+  if (page == "") page = "liga_inggris";
+  loadPage(page);
+
 
 });

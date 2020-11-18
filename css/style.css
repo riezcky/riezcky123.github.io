@@ -12,13 +12,6 @@
     object-position: center;
 }
 
-.kuliner-image {
-    max-width: 70%;
-    max-height: 500px;
-    object-fit: cover;
-    object-position: center;
-}
-
 * {
     box-sizing: border-box;
 }
@@ -27,12 +20,10 @@
     border-radius: 11%;
 }
 
-.sct-x {
-    padding-top: -21rem;
-    padding-bottom: -4rem;
-    margin: 20px;
-}
-
 .waves-effect {
     display: flex;
+}
+
+.teal.lighten-1 {
+    background-color: #2d6187 !important;
 }

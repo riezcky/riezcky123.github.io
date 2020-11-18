@@ -1,17 +1,18 @@
 {
-    "name": "Magetan Kumandang",
-    "short_name": "Magetan Kumandang",
-    "description": "Aplikasi PWA tentang Kabupaten Magetan",
+    "name": "Football Apps",
+    "short_name": "Football Apps",
+    "description": "Football Information Apps",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#00897B",
     "theme_color": "#00897B",
     "icons": [
         {
-            "purpose": "maskable",
+            "purpose": "any maskable",
             "src": "icon.png",
             "sizes": "512x512",
             "type": "image/png"
         }
-    ]
+    ],
+    "gcm_sender_id": "777601140108"
 }
