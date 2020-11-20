@@ -126,8 +126,7 @@ const getClubById = () => {
         resolve(data);
       })
       .catch(error => console.log(error),
-      console.log("error cuk : ", error),
-      document.getElementById("body-content").innerHTML = `Anda dalam keadaan Offline, ada error : ${error}`);
+      document.getElementById("body-content").innerHTML = `Anda dalam keadaan Offline`);
   });
 }
 

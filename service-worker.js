@@ -25,9 +25,12 @@ workbox.precaching.precacheAndRoute([
     { url: 'icon/iconfont/MaterialIcons-Regular.ttf', revision: '1' },
     { url: '/manifest.json', revision: '1' },
     { url: '/img/poto-rizki.jpeg', revision: '1' },
-    { url: '/icon.png', revision: '1' },
+    { url: '/icon-512.png', revision: '1' },
+    { url: '/icon-192.png', revision: '1' },
     { url: '/custom_icon.png', revision: '1' },
-]);
+], 
+  { ignoreUrlParametersMatching: [/.*/]}
+);
 
 workbox.routing.registerRoute(
   new RegExp('https://api.football-data.org/'),
@@ -44,28 +47,10 @@ workbox.routing.registerRoute(
     })
 );
 
-// Menyimpan cache dari CSS Google Fonts
 workbox.routing.registerRoute(
-  /^https:\/\/fonts\.googleapis\.com/,
+  /.*(?:googleapis|gstatic)\.com/,
   workbox.strategies.staleWhileRevalidate({
     cacheName: 'google-fonts-stylesheets',
-  })
-);
- 
-// Menyimpan cache untuk file font selama 1 tahun
-workbox.routing.registerRoute(
-  /^https:\/\/fonts\.gstatic\.com/,
-  workbox.strategies.cacheFirst({
-    cacheName: 'google-fonts-webfonts',
-    plugins: [
-      new workbox.cacheableResponse.Plugin({
-        statuses: [0, 200],
-      }),
-      new workbox.expiration.Plugin({
-        maxAgeSeconds: 60 * 60 * 24 * 365,
-        maxEntries: 30,
-      }),
-    ],
   })
 );
 
